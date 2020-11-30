@@ -1,3 +1,13 @@
+package actors;
+
+import components.Article;
+import components.Event;
+import components.EventType;
+import dispatcher.Dispatcher;
+import filters.DomainFilter;
+import filters.Filter;
+import filters.SourceFilter;
+
 import java.util.ArrayList;
 import java.util.Random;
 

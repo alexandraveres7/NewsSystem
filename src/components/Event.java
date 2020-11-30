@@ -1,3 +1,5 @@
+package components;
+
 public class Event {
     private Article article;
     private EventType eventType;
@@ -16,6 +18,6 @@ public class Event {
     }
 
     public String toString() {
-        return "Event type: " + this.eventType + "\nArticle: " + this.article;
+        return "components.Event type: " + this.eventType + "\ncomponents.Article: " + this.article;
     }
 }

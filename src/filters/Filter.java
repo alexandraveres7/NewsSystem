@@ -1,3 +1,7 @@
+package filters;
+
+import components.Article;
+
 public abstract class Filter {
     protected String criteria;
 

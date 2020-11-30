@@ -1,3 +1,11 @@
+package actors;
+
+import components.Article;
+import components.Event;
+import components.EventType;
+import dispatcher.Dispatcher;
+import filters.Filter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,7 +56,7 @@ public class Editor implements Observer {
             }
         }
         if (modifiedArticle == null) {
-            System.out.println("Article " + title + " not found");
+            System.out.println("components.Article " + title + " not found");
             return;
         }
         Event event = new Event(modifiedArticle, EventType.MODIFY);

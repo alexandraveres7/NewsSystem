@@ -1,3 +1,5 @@
+package components;
+
 import java.time.LocalDate;
 
 public class Article {
@@ -7,6 +9,7 @@ public class Article {
 
     public Article(String title, String text, String domain, String subdomain, String source, String author) {
         this.title = title;
+        this.text = text;
         this.domain = domain;
         this.subdomain = subdomain;
         this.source = source;

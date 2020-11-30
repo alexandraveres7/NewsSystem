@@ -1,3 +1,8 @@
+package main;
+
+import actors.Editor;
+import actors.Reader;
+
 public class Main {
     public static void main(String[] args) {
         Reader reader1 = new Reader("Ale");

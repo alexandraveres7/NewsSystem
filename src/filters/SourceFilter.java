@@ -1,3 +1,7 @@
+package filters;
+
+import components.Article;
+
 public class SourceFilter extends Filter {
     public SourceFilter(String criteria) {
         super(criteria);

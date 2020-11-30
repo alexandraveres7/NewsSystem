@@ -1,3 +1,5 @@
+package components;
+
 public enum EventType {
     CREATE,
     MODIFY,
