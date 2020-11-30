@@ -5,7 +5,7 @@ public class Article {
     private LocalDate dateCreated, dateLastModified;
     private Integer views = 0;
 
-    public Article(String title,String text, String domain, String subdomain, String source, String author) {
+    public Article(String title, String text, String domain, String subdomain, String source, String author) {
         this.title = title;
         this.domain = domain;
         this.subdomain = subdomain;
@@ -14,12 +14,12 @@ public class Article {
         this.dateCreated = LocalDate.now();
     }
 
-    public void modifyArticle(String text){
+    public void modifyArticle(String text) {
         this.text = text;
         this.dateLastModified = LocalDate.now();
     }
 
-    public void read(){
+    public void read() {
         views++;
     }
 

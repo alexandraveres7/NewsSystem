@@ -15,7 +15,7 @@ public class Event {
         return eventType;
     }
 
-    public String toString(){
+    public String toString() {
         return "Event type: " + this.eventType + "\nArticle: " + this.article;
     }
 }

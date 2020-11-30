@@ -12,13 +12,13 @@ public class Editor implements Observer {
         this.editorialOffice = editorialOffice;
     }
 
-    public void update(Event event){
-        if (event.getEventType().equals(EventType.READ)){
+    public void update(Event event) {
+        if (event.getEventType().equals(EventType.READ)) {
             Article article = event.getArticle();
-            System.out.println(this.name + "'s article " + article.getTitle() + "has been read " + "\n Total views:" +
-                    article.getViews());
-        }
-        else{
+            article.read();
+            System.out.println(article.getAuthor() + "'s article \"" + article.getTitle() + "\" has been read " + "\nTotal views: " +
+                    article.getViews() + "\n\n");
+        } else {
             System.out.println("Unknown event type\n");
         }
     }
@@ -28,25 +28,26 @@ public class Editor implements Observer {
         return null;
     }
 
-    public void registerListener(){
+    public void registerListener() {
         dispatcher.registerListener(this, EventType.READ);
     }
 
-    public void publishArticle(String title, String text, String domain, String subdomain){
+    public void publishArticle(String title, String text, String domain, String subdomain) {
         Article newArticle = new Article(title, text, domain, subdomain, this.editorialOffice, this.name);
         articles.add(newArticle);
         Event event = new Event(newArticle, EventType.CREATE);
         dispatcher.notifyListeners(event);
     }
 
-    public void modifyArticle(String title, String text){
+    public void modifyArticle(String title, String text) {
         Article modifiedArticle = null;
-        for(Article article: this.articles)
-            if (article.getTitle().equals(title)){
+        for (Article article : this.articles) {
+            if (article.getTitle().equals(title)) {
                 article.modifyArticle(text);
                 modifiedArticle = article;
             }
-        if (modifiedArticle == null){
+        }
+        if (modifiedArticle == null) {
             System.out.println("Article " + title + " not found");
             return;
         }
@@ -54,11 +55,11 @@ public class Editor implements Observer {
         dispatcher.notifyListeners(event);
     }
 
-    public void deleteArticle(String title){
+    public void deleteArticle(String title) {
         List<Article> articleList;
         articleList = this.articles.stream()
-                    .filter(a -> a.getTitle().equals(title)).collect(Collectors.toList());
-        if (articleList.isEmpty()){
+                .filter(a -> a.getTitle().equals(title)).collect(Collectors.toList());
+        if (articleList.isEmpty()) {
             return;
         }
         this.articles.removeIf(article -> article.getTitle().equals(title));

@@ -1,4 +1,4 @@
-public class SourceFilter extends Filter{
+public class SourceFilter extends Filter {
     public SourceFilter(String criteria) {
         super(criteria);
     }
