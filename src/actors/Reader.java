@@ -4,6 +4,7 @@ import components.Article;
 import components.Event;
 import components.EventType;
 import dispatcher.Dispatcher;
+import filters.DateFilter;
 import filters.DomainFilter;
 import filters.Filter;
 import filters.SourceFilter;
@@ -11,7 +12,7 @@ import filters.SourceFilter;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Reader implements Observer {
+public class Reader implements Actor {
     private String name;
     private Dispatcher dispatcher = Dispatcher.getInstance();
     private ArrayList<Filter> filters;
@@ -32,12 +33,11 @@ public class Reader implements Observer {
         if (this.filters == null) {
             this.filters = new ArrayList<>();
         }
-        if (criteriaType.equals("Source")) {
-            this.filters.add(new SourceFilter(criteria));
-        } else if (criteriaType.equals("Domain")) {
-            this.filters.add(new DomainFilter(criteria));
+        switch (criteriaType) {
+            case "Source" -> this.filters.add(new SourceFilter(criteria));
+            case "Domain" -> this.filters.add(new DomainFilter(criteria));
+            case "Date" -> this.filters.add(new DateFilter(criteria));
         }
-
     }
 
     public ArrayList<Filter> getFilter() {

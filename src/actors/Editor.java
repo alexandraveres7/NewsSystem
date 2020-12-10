@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Editor implements Observer {
+public class Editor implements Actor {
     private String name, editorialOffice;
     private Dispatcher dispatcher = Dispatcher.getInstance();
     private ArrayList<Article> articles = new ArrayList<>();
