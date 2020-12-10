@@ -34,9 +34,10 @@ public class Reader implements Actor {
             this.filters = new ArrayList<>();
         }
         switch (criteriaType) {
-            case "Source" -> this.filters.add(new SourceFilter(criteria));
-            case "Domain" -> this.filters.add(new DomainFilter(criteria));
-            case "Date" -> this.filters.add(new DateFilter(criteria));
+            case "Source": this.filters.add(new SourceFilter(criteria));break;
+            case "Domain": this.filters.add(new DomainFilter(criteria));break;
+            case "Date": this.filters.add(new DateFilter(criteria));break;
+            default: System.out.println("Invalid filter\n");break;
         }
     }
 

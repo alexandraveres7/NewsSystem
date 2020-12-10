@@ -15,7 +15,7 @@ public class Main {
         reader1.registerListener();
         reader2.registerListener();
 
-        reader1.addFilterCriteria("Date", "2020-08-08");
+        reader1.addFilterCriteria("Date", "2019-08-08");
         reader1.addFilterCriteria("Source", "DailyMail");
         reader1.addFilterCriteria("Source", "CNN");
         reader2.addFilterCriteria("Domain", "shopping");
